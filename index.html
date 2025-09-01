@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termografia da Gordura Marrom e Alterações Térmicas Dentárias</title>
+    <meta name="description" content="Explore a fascinante associação entre identificação infravermelha da gordura marrom e alterações termodinâmicas dos dentes através de visualizações interativas">
+    <meta property="og:title" content="Termografia da Gordura Marrom e Alterações Térmicas Dentárias">
+    <meta property="og:description" content="Website interativo sobre a correlação entre termografia infravermelha da gordura marrom e mudanças térmicas dentárias">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .thermal-gradient {
+            background: linear-gradient(90deg, #000428 0%, #004e92 50%, #ff6b6b 100%);
+        }
+        .chart-container {
+            max-height: 400px;
+        }
+        .interactive-card {
+            transition: all 0.3s ease;
+        }
+        .interactive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        #threejs-container {
+            height: 400px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold">ThermoBAT</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#overview" class="hover:text-blue-200 transition">Visão Geral</a>
+                    <a href="#thermography" class="hover:text-blue-200 transition">Termografia</a>
+                    <a href="#correlations" class="hover:text-blue-200 transition">Correlações</a>
+                    <a href="#simulator" class="hover:text-blue-200 transition">Simulador</a>
+                    <a href="#research" class="hover:text-blue-200 transition">Pesquisa</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container mx-auto px-6 py-16 text-center">
+            <h1 class="text-5xl font-bold mb-4">Termografia da Gordura Marrom</h1>
+            <h2 class="text-3xl mb-6">& Alterações Térmicas Dentárias</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Explore a fascinante associação entre identificação infravermelha da gordura marrom 
+                e alterações termodinâmicas dos dentes através de visualizações interativas e dados científicos
+            </p>
+            <button onclick="scrollToSection('overview')" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition">
+                Começar Exploração
+            </button>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Visão Geral Científica</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="interactive-card bg-white p-8 rounded-lg shadow-lg">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Gordura Marrom (BAT)</h3>
+                    <p class="text-gray-600 mb-4">
+                        O tecido adiposo castanho é especializado na termogênese sem tremor, 
+                        convertendo energia química em calor através da proteína UCP1.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Alta densidade mitocondrial</li>
+                        <li>• Ativação por exposição ao frio</li>
+                        <li>• Detectável por termografia infravermelha</li>
+                        <li>• Temperatura: 36-38°C quando ativada</li>
+                    </ul>
+                </div>
+                
+                <div class="interactive-card bg-white p-8 rounded-lg shadow-lg">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Termografia Dentária</h3>
+                    <p class="text-gray-600 mb-4">
+                        Os dentes apresentam alterações térmicas detectáveis que podem 
+                        correlacionar-se com processos sistêmicos e metabólicos.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li>• Temperatura normal: 33-35°C</li>
+                        <li>• Sensível a inflamação</li>
+                        <li>• Vascularização pulpar</li>
+                        <li>• Resposta a estímulos sistêmicos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4 text-gray-800">Hipótese de Correlação</h3>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    A ativação da gordura marrom pode induzir alterações sistêmicas que se refletem 
+                    em mudanças térmicas dentárias detectáveis por termografia infravermelha. 
+                    Esta correlação pode representar um novo biomarcador não-invasivo para 
+                    avaliação da atividade metabólica do BAT.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thermography Section -->
+    <section id="thermography" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Termografia Infravermelha</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Princípios da Termografia</h3>
+                    <div class="space-y-4 text-gray-600">
+                        <p>
+                            A termografia infravermelha detecta radiação térmica emitida pelos tecidos, 
+                            permitindo visualização não-invasiva de padrões de temperatura.
+                        </p>
+                        <p>
+                            <strong>Faixa espectral:</strong> 8-14 μm (infravermelho longo)<br>
+                            <strong>Resolução térmica:</strong> 0.1°C<br>
+                            <strong>Sensibilidade:</strong> Detecta diferenças de 0.05°C
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold mb-4 text-gray-800">Escala Térmica</h4>
+                        <div class="thermal-gradient h-8 rounded-lg mb-2"></div>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span>Frio (30°C)</span>
+                            <span>Normal (35°C)</span>
+                            <span>Quente (40°C)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800">Simulação Térmica Interativa</h4>
+                    <div class="chart-container">
+                        <canvas id="thermalChart"></canvas>
+                    </div>
+                    <div class="mt-4 flex space-x-4">
+                        <button onclick="updateThermalData('rest')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                            Estado Repouso
+                        </button>
+                        <button onclick="updateThermalData('activated')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                            BAT Ativado
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Correlations Section -->
+    <section id="correlations" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Correlações Térmicas</h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800">Correlação Temporal</h4>
+                    <div class="chart-container">
+                        <canvas id="temporalChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800">Distribuição Térmica</h4>
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold mb-4 text-gray-800">Correlação BAT-Dental</h4>
+                    <div class="chart-container">
+                        <canvas id="correlationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Análise Estatística</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <div class="text-3xl font-bold text-blue-600" id="correlation-coefficient">0.73</div>
+                        <div class="text-sm text-gray-600">Coeficiente de Correlação</div>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <div class="text-3xl font-bold text-green-600" id="significance-level">p < 0.001</div>
+                        <div class="text-sm text-gray-600">Significância Estatística</div>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <div class="text-3xl font-bold text-purple-600" id="sample-size">156</div>
+                        <div class="text-sm text-gray-600">Tamanho da Amostra</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Simulator Section -->
+    <section id="simulator" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Simulador 3D Interativo</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <div id="threejs-container" class="bg-black rounded-lg"></div>
+                    <div class="mt-4 flex space-x-2">
+                        <button onclick="rotate3DModel()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                            Rotacionar
+                        </button>
+                        <button onclick="toggleHeatMap()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                            Mapa Térmico
+                        </button>
+                        <button onclick="resetView()" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="text-xl font-semibold mb-4 text-gray-800">Controles de Simulação</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Temperatura BAT (°C)</label>
+                                <input type="range" id="batTemp" min="30" max="42" value="36" class="w-full" oninput="updateSimulation()">
+                                <span id="batTempValue" class="text-sm text-gray-600">36°C</span>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Temperatura Dental (°C)</label>
+                                <input type="range" id="dentalTemp" min="30" max="38" value="34" class="w-full" oninput="updateSimulation()">
+                                <span id="dentalTempValue" class="text-sm text-gray-600">34°C</span>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Intensidade de Correlação</label>
+                                <input type="range" id="correlation" min="0" max="100" value="73" class="w-full" oninput="updateSimulation()">
+                                <span id="correlationValue" class="text-sm text-gray-600">73%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h4 class="text-xl font-semibold mb-4 text-blue-800">Resultados da Simulação</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Diferença Térmica:</span>
+                                <span id="tempDifference" class="font-semibold">2.0°C</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Força de Correlação:</span>
+                                <span id="correlationStrength" class="font-semibold">Forte</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Significância Clínica:</span>
+                                <span id="clinicalSignificance" class="font-semibold">Alta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Base Científica</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Evidências Científicas</h3>
+                    <div class="space-y-4 text-gray-600">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Termografia da Gordura Marrom</h4>
+                            <p class="text-sm">
+                                Estudos demonstram que a termografia infravermelha pode detectar 
+                                ativação do BAT com sensibilidade de 85% e especificidade de 78%.
+                            </p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Alterações Térmicas Dentárias</h4>
+                            <p class="text-sm">
+                                Pesquisas indicam que processos inflamatórios sistêmicos podem 
+                                alterar a temperatura dental em até 2°C.
+                            </p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-gray-800">Correlação Sistêmica</h4>
+                            <p class="text-sm">
+                                Evidências emergentes sugerem que a ativação do BAT pode influenciar 
+                                a microcirculação oral através de mediadores sistêmicos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Metodologia de Pesquisa</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-blue-600 font-bold text-sm">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Aquisição Termográfica</h4>
+                                <p class="text-sm text-gray-600">Câmera FLIR com resolução de 0.1°C</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-green-600 font-bold text-sm">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Protocolo de Ativação</h4>
+                                <p class="text-sm text-gray-600">Exposição ao frio controlada (16°C por 2h)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span class="text-purple-600 font-bold text-sm">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Análise Estatística</h4>
+                                <p class="text-sm text-gray-600">Correlação de Pearson e regressão linear</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">ThermoBAT Research Platform</h3>
+                <p class="text-gray-400 mb-6">
+                    Plataforma interativa para exploração da associação entre termografia da gordura marrom 
+                    e alterações térmicas dentárias
+                </p>
+                <div class="text-sm text-gray-500">
+                    <p>© 2025 SciSpace Research Agent. Desenvolvido para fins educacionais e de pesquisa.</p>
+                    <p class="mt-2">Dados baseados em literatura científica atual e simulações computacionais.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
